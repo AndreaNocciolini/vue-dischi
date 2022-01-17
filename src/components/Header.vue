@@ -23,7 +23,7 @@ export default {
             width: 3%;
             img {
                 width: 100%;
-                padding: 1em
+                padding: 0.35em;
             }
         }
     }
