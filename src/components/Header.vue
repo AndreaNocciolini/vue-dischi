@@ -1,8 +1,10 @@
 <template>
   <div class="header-container">
-      <div class="logo-container">
-          <img src="../assets/images/Spotify_logo_without_text.png" alt="alt">
-      </div>
+    <div class="logo-container">
+      <img 
+        src="../assets/images/Spotify_logo_without_text.png" 
+        alt="alt">
+    </div>
   </div>
 </template>
 
@@ -20,10 +22,10 @@ export default {
         width: 100%;
         background-color: #2E3A46;
         .logo-container {
-            width: 3%;
+            width: 4%;
             img {
                 width: 100%;
-                padding: 0.35em;
+                padding: 0.4em;
             }
         }
     }
