@@ -1,5 +1,6 @@
 <template>
   <div class="main-container">
+    <Search />
     <div>
       <div class="mb-3 p-3">
         <select
@@ -73,9 +74,13 @@
 
 <script>
 import axios from 'axios'
+import Search from './Search.vue'
 
 export default {
     name: 'Main',
+    component: {
+      Search,
+    },
     data() {
       return {
         albums: null,
