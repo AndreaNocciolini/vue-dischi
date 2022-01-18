@@ -1,6 +1,8 @@
 <template>
   <div class="main-container">
-    <Search />
+    <!-- Search Genre Component -->
+    <Search @doSearch="filteredAlbumComponent($event)" />
+    <!-- Search Genre NO Component -->
     <div>
       <div class="mb-3 p-3">
         <select
@@ -78,20 +80,18 @@ import Search from './Search.vue'
 
 export default {
     name: 'Main',
-    component: {
+    components: {
       Search,
     },
     data() {
       return {
         albums: null,
         key: '',
-        supp: null,
       }
     },
     mounted() {
       axios.get('https://flynn.boolean.careers/exercises/api/array/music')
       .then((result) => {
-              console.log(result.data.response);
               this.albums = result.data.response;
               this.suppAlbums = this.albums
               }
@@ -102,6 +102,17 @@ export default {
             )
     },
     methods: {
+      // Filter Function for Component (Genre Select)
+      filteredAlbumComponent(inputSelect){
+        this.albums = this.suppAlbums;
+        if(inputSelect === "All"){
+          return this.albums
+        }
+        else {
+          return this.albums = this.albums.filter((element) => element.genre.includes(inputSelect))
+        }
+      },
+      // Filter Function (no Component) (Genre Select)
       filteredAlbum(event) {
         this.albums = this.suppAlbums;
         if(event.target.value === "All"){
